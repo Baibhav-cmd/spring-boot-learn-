@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" >
+<title>Condition</title>
+</head>
+<body>
+
+<h1 th:include="iterate::aaaa('include')"> value of a is 10 <span th:style="${variable==10}?'color:green':'color:red'"
+th:text="${variable==10}?'true':'false'"></span></h1>
+<div th:if="${variable <  variable2}" style="color:green;">aaaaaaaaaaaaaa</div>
+<div th:unless="${Variable < variable2}" style="color:red;">aaaaaaaaaaaaaa</div>
+
+<div th:switch="${variable}">
+<h1 th:case=" 30">the a lies</h1>
+<h1 th:case="*">the ais lies</h1>
+</div>
+<div th:insert="iterate::aaaa('insert')">sdssssssssss0ss</div>
+</body>
+</html>

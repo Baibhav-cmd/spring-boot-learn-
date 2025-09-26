@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <h1>I am learning Spring Boot</h1>
+    <p>Using @GetMapping</p>
+    
+    <h2>The name of owner is:</h2>
+    <h3 th:text="${#strings.toUpperCase(name)}">Default Name</h3>
+    
+    <h3 th:text="${currentdate}">Default Date</h3>
+</body>
+</html>
