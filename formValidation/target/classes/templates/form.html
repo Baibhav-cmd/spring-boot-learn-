@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+ body {
+ background-color:red;
+ }
+  </style>
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center vh-100 bg-red">
+
+  <div class="card shadow p-4" style="width: 24rem;">
+    <h3 class="text-center mb-3">Login</h3>
+    
+    <form th:action="@{/sumbit}" method="post" th:object="${logindata}">
+      
+      <!-- Username -->
+      <div class="mb-3" >
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" th:value="${logindata.username}">
+      <p th:each="e:${#fields.errors('username')}" th:text="${e}" class="text-danger"></p>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" th:value="${logindata.email}" placeholder="Enter email">
+     <p th:each="e:${#fields.errors('email')}" th:text="${e}" class="text-danger"></p>
+      </div>
+
+      <!-- Accept Condition -->
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="accept" name="agreed" >
+        <label class="form-check-label" for="accept">I accept the terms & conditions</label>
+        <p th:each="e:${#fields.errors('agreed')}" th:text="${e}")></p>
+      </div>
+
+      <!-- Submit -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
